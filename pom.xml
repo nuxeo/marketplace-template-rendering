@@ -4,17 +4,17 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>5.6</version>
+    <version>5.7-SNAPSHOT</version>
   </parent>
 
   <groupId>org.nuxeo.template.rendering</groupId>
   <artifactId>marketplace-parent</artifactId>
   <packaging>pom</packaging>
   <name>Nuxeo Marketplace package for template rendering</name>
-  <version>6.0-SNAPSHOT</version>
+  <version>6.1-SNAPSHOT</version>
 
   <properties>
-    <marketplace.rendering.version>6.0-SNAPSHOT</marketplace.rendering.version>
+    <marketplace.rendering.version>6.1-SNAPSHOT</marketplace.rendering.version>
   </properties>
 
   <modules>
