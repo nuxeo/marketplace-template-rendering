@@ -11,10 +11,10 @@
   <artifactId>marketplace-parent</artifactId>
   <packaging>pom</packaging>
   <name>Nuxeo Marketplace package for template rendering</name>
-  <version>6.0.1</version>
+  <version>6.0.2-SNAPSHOT</version>
 
   <properties>
-    <marketplace.rendering.version>6.0.1</marketplace.rendering.version>
+    <marketplace.rendering.version>6.0.2-SNAPSHOT</marketplace.rendering.version>
   </properties>
 
   <modules>
