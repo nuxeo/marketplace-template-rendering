@@ -1,5 +1,5 @@
 <package type="addon" name="nuxeo-template-rendering" version="@VERSION@">
-  <title>Template Rendering Addon</title>
+  <title>Template Rendering</title>
   <description>
     <p>Provides a service to bind Nuxeo documents to template and render them.</p>
   </description>
