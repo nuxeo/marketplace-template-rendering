@@ -11,6 +11,8 @@
   <production-state>production_ready</production-state>
   <supported>true</supported>
   <platforms>
+    <platform>cap-5.6</platform>
+    <platform>cap-5.6.0-HF*</platform>
     <platform>cap-@DISTRIB_VERSION@</platform>
   </platforms>
   <license>LGPL 2.1</license>
