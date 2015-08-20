@@ -1,0 +1,22 @@
+<package type="addon" name="nuxeo-template-rendering-samples" version="@VERSION@">
+  <title>Template Rendering Samples</title>
+  <description>
+    <p>Provides samples for the template rendering add-on.</p>
+  </description>
+  <home-page>https://github.com/nuxeo/nuxeo-template-rendering</home-page>
+  <vendor>Nuxeo</vendor>
+  <installer restart="true" />
+  <uninstaller restart="true" />
+  <nuxeo-validation>nuxeo_certified</nuxeo-validation>
+  <production-state>production_ready</production-state>
+  <supported>true</supported>
+  <platforms>
+    <platform>cap-@DISTRIB_VERSION@</platform>
+  </platforms>
+  <dependencies>
+     <package>nuxeo-template-rendering</package>
+  </dependencies>
+  <license>LGPL 2.1</license>
+  <license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
+  <visibility>PUBLIC</visibility>
+</package>
