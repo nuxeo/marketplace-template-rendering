@@ -8,7 +8,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>package</artifactId>
+  <artifactId>package-samples</artifactId>
   <name>Template rendering samples Marketplace package</name>
   <packaging>zip</packaging>
 
