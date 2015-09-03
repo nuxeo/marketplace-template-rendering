@@ -3,8 +3,7 @@
          xmlns:nx="urn:nuxeo-build"
          xmlns:artifact="urn:nuxeo-artifact">
   <taskdef resource="org/nuxeo/build/antlib.xml" uri="urn:nuxeo-build" />
-  <taskdef resource="org/nuxeo/build/artifact/antlib.xml"
-           uri="urn:nuxeo-artifact" />
+  <taskdef resource="org/nuxeo/build/artifact/antlib.xml" uri="urn:nuxeo-artifact" />
   <taskdef resource="net/sf/antcontrib/antlib.xml" />
 
   <target name="init" unless="init.done">
@@ -14,22 +13,15 @@
   </target>
 
   <target name="expand">
-    <!-- Include your artifacts in the graph adding your groupId to groupPrefixes -->
-    <artifact:nuxeo-expand includeTestScope="true"
-                           groupPrefixes="org.nuxeo,com.nuxeo" />
+    <artifact:nuxeo-expand includeTestScope="true" groupPrefixes="org.nuxeo" />
     <!-- For Nuxeo IDE being able to use that distribution as a SDK -->
-    <artifact:print output="${outdir}/artifacts-rendering.properties"
-                    mode="sdk" />
-    <artifact:print output="${outdir}/test-artifacts-rendering.properties"
-                    mode="sdk"
-                    scopes="test" />
+    <artifact:print output="${outdir}/artifacts-rendering.properties" mode="sdk" />
+    <artifact:print output="${outdir}/test-artifacts-rendering.properties" mode="sdk" scopes="test" />
     <!-- Prints the graph for debugging purpose -->
     <artifact:print output="${outdir}/dependency-tree.log" />
   </target>
 
-  <target name="build"
-          depends="init"
-          description="Build template rendering Marketplace package">
+  <target name="build" depends="init" description="Build template rendering Marketplace package">
     <tstamp />
     <delete failonerror="false" dir="${outdir}/nxr" />
     <mkdir dir="${outdir}/nxr" />
@@ -42,10 +34,8 @@
         <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
       </filterset>
     </copy>
-    <copy file="${outdir}/artifacts-rendering.properties"
-          todir="${outdir}/marketplace/install" />
-    <copy file="${outdir}/test-artifacts-rendering.properties"
-          todir="${outdir}/marketplace/install" />
+    <copy file="${outdir}/artifacts-rendering.properties" todir="${outdir}/marketplace/install" />
+    <copy file="${outdir}/test-artifacts-rendering.properties" todir="${outdir}/marketplace/install" />
 
     <!-- Base distribution NXR -->
     <copy todir="${outdir}">
@@ -80,13 +70,11 @@
         <include name="nuxeo-generic-wss-handler*" />
       </fileset>
     </move>
-    <!-- rename jexl2 so that update system does not remplace jexl 1 lib that is already part of Nuxeo -->
-    <nx:rename from="${outdir}/nxr/lib/commons-jexl-2*"
-               to="${outdir}/nxr/lib/commons-jexl2-do-not-remove-2.jar" />
+    <!-- rename jexl2 so that update system does not replace jexl 1 lib that is already part of Nuxeo -->
+    <nx:rename from="${outdir}/nxr/lib/commons-jexl-2*" to="${outdir}/nxr/lib/commons-jexl2-do-not-remove-2.jar" />
     <nx:rmdups dir="${outdir}/nxr/lib" />
     <!-- Temporary ZIP Nuxeo NXR to compare with base distribution NXR -->
-    <zip destfile="${outdir}/nxr-${maven.project.version}.zip"
-         basedir="${outdir}/nxr" />
+    <zip destfile="${outdir}/nxr-${maven.project.version}.zip" basedir="${outdir}/nxr" />
 
     <!-- Your MP only needs to include files not already provided by the base distribution -->
     <nx:zipdiff file1="${outdir}/nxr-${maven.project.version}.zip"
@@ -95,8 +83,7 @@
                 excludesfile="${outdir}/excludesfile"
                 patternsetid="rendering.versus.cap">
     </nx:zipdiff>
-    <unzip src="${outdir}/nxr-${maven.project.version}.zip"
-           dest="${outdir}/marketplace/install">
+    <unzip src="${outdir}/nxr-${maven.project.version}.zip" dest="${outdir}/marketplace/install">
       <patternset refid="rendering.versus.cap" />
     </unzip>
 
@@ -121,13 +108,11 @@
   &lt;copy file=&quot;${package.root}/install/test-artifacts-rendering.properties&quot;${line.separator}
     todir=&quot;${env.server.home}/sdk&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
 &lt;/install&gt;${line.separator}" />
-    <echo file="${outdir}/marketplace/install.xml"
-          message="${install.content}" />
+    <echo file="${outdir}/marketplace/install.xml" message="${install.content}" />
 
     <zip destfile="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
          basedir="${outdir}/marketplace" />
-    <artifact:attach file="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
-                     type="zip" />
+    <artifact:attach file="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip" type="zip" />
   </target>
 
 </project>
