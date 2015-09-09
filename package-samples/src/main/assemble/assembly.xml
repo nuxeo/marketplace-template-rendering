@@ -1,0 +1,72 @@
+<project name="template-rendering-assembly"
+         default="build"
+         xmlns:nx="urn:nuxeo-build"
+         xmlns:artifact="urn:nuxeo-artifact">
+  <taskdef resource="org/nuxeo/build/antlib.xml" uri="urn:nuxeo-build" />
+  <taskdef resource="org/nuxeo/build/artifact/antlib.xml"
+           uri="urn:nuxeo-artifact" />
+  <taskdef resource="net/sf/antcontrib/antlib.xml" />
+
+  <target name="init" unless="init.done">
+    <property name="outdir" value="${maven.project.build.directory}" />
+    <antcall target="expand" />
+    <property name="init.done" value="true" />
+  </target>
+
+  <target name="expand">
+    <artifact:nuxeo-expand includeTestScope="true"
+                           groupPrefixes="org.nuxeo" />
+    <artifact:print output="${outdir}/artifacts-rendering.properties"
+                    mode="sdk" />
+    <artifact:print output="${outdir}/test-artifacts-rendering.properties"
+                    mode="sdk"
+                    scopes="test" />
+    <artifact:print output="${outdir}/dependency-tree.log" />
+  </target>
+
+  <target name="build"
+          depends="init"
+          description="Build template rendering samples Marketplace package">
+    <tstamp />
+    <delete failonerror="false" dir="${outdir}/marketplace" />
+    <mkdir dir="${outdir}/marketplace" />
+    <copy todir="${outdir}/marketplace">
+      <fileset dir="src/main/resources" />
+      <filterset>
+        <filter token="VERSION" value="${maven.project.version}" />
+        <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
+      </filterset>
+    </copy>
+    <copy file="${outdir}/artifacts-rendering.properties"
+          todir="${outdir}/marketplace/install" />
+    <copy file="${outdir}/test-artifacts-rendering.properties"
+          todir="${outdir}/marketplace/install" />
+
+    <!-- Nuxeo bundles -->
+    <copy todir="${outdir}/marketplace/install/bundles" overwrite="true">
+    	<artifact:file artifactId="nuxeo-template-rendering-samples" />
+    	<artifact:file artifactId="template-module-demo" />
+    </copy>
+
+    <!-- Generate install.xml file -->
+    <var name="install.content" value="&lt;install&gt;" />
+    <var name="install.content"
+         value="${install.content}${line.separator}
+  &lt;update file=&quot;${package.root}/install/bundles&quot; todir=&quot;${env.bundles}&quot; /&gt;" />
+    <var name="install.content"
+         value="${install.content}${line.separator}
+  &lt;copy file=&quot;${package.root}/install/artifacts-rendering.properties&quot;${line.separator}
+    todir=&quot;${env.server.home}/sdk&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
+  &lt;copy file=&quot;${package.root}/install/test-artifacts-rendering.properties&quot;${line.separator}
+    todir=&quot;${env.server.home}/sdk&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
+&lt;/install&gt;${line.separator}" />
+    <echo file="${outdir}/marketplace/install.xml"
+          message="${install.content}" />
+
+    <zip destfile="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
+         basedir="${outdir}/marketplace" />
+    <artifact:attach file="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
+                     type="zip" />
+  </target>
+
+</project>

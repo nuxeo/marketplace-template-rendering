@@ -19,6 +19,7 @@
 
   <modules>
     <module>package</module>
+    <module>package-samples</module>
   </modules>
 
   <profiles>
