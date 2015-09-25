@@ -39,7 +39,7 @@
       <dependency>
         <groupId>org.nuxeo.template.rendering</groupId>
         <artifactId>package</artifactId>
-        <version>${maven.project.version}</version>
+        <version>${project.version}</version>
         <type>zip</type>
       </dependency>
     </dependencies>
