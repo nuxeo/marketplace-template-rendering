@@ -13,12 +13,9 @@
   <name>Nuxeo Marketplace package for template rendering</name>
   <version>6.5.3-SNAPSHOT</version>
 
-  <properties>
-    <marketplace.rendering.version>6.5.3-SNAPSHOT</marketplace.rendering.version>
-  </properties>
-
   <modules>
     <module>package</module>
+    <module>package-samples</module>
   </modules>
 
   <profiles>
@@ -34,8 +31,15 @@
     <dependencies>
       <dependency>
         <groupId>org.nuxeo.template.rendering</groupId>
+        <artifactId>nuxeo-template-rendering-parent</artifactId>
+        <version>${nuxeo.templates.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.nuxeo.template.rendering</groupId>
         <artifactId>package</artifactId>
-        <version>${marketplace.rendering.version}</version>
+        <version>${maven.project.version}</version>
         <type>zip</type>
       </dependency>
     </dependencies>
