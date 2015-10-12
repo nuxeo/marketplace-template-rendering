@@ -1,7 +1,7 @@
 <package type="addon" name="nuxeo-template-rendering" version="@VERSION@">
   <title>Template Rendering</title>
   <description>
-    <p>Provides a service to bind Nuxeo documents to template and render them.</p>
+    <p>Provides a service to bind Nuxeo documents to templates and render them. Microsoft Office / LibreOffice file formats and XML templates are both supported.</p>
   </description>
   <home-page>https://github.com/nuxeo/nuxeo-template-rendering</home-page>
   <vendor>Nuxeo</vendor>

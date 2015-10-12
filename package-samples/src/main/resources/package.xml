@@ -1,7 +1,7 @@
 <package type="addon" name="nuxeo-template-rendering-samples" version="@VERSION@">
   <title>Template Rendering Samples</title>
   <description>
-    <p>Provides samples for the template rendering add-on.</p>
+    <p>Discover through an inspiring demo how the template rendering add-on can improve your everyday business processes. This demo showcases the BigCorp company, generating financial reports for internal use, and case studies demonstrating their expertise for potential new customers. All being achieved by extracting their relevant content into office templates on the fly.</p>
   </description>
   <home-page>https://github.com/nuxeo/nuxeo-template-rendering</home-page>
   <vendor>Nuxeo</vendor>
