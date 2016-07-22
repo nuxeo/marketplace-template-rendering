@@ -44,11 +44,12 @@
 
     <!-- Nuxeo bundles -->
     <copy todir="${outdir}/nxr/bundles" overwrite="true">
-      <artifact:set excludeRoots="true">
+      <artifact:set>
         <includes>
           <artifact groupId="org.nuxeo*" />
         </includes>
         <excludes>
+          <artifact groupId="org.nuxeo.lib*" />
           <artifact scope="test" />
           <artifact scope="provided" />
           <artifact type="pom" />
