@@ -79,7 +79,7 @@
     <!-- Template Rendering JSF -->
     <!-- Nuxeo bundles -->
     <copy todir="${outdir}/nxr/bundles" overwrite="true">
-      <artifact:dependencies key="org.nuxeo.template.rendering:nuxeo-template-rendering-web:::">
+      <artifact:dependencies key="org.nuxeo.template.rendering:nuxeo-template-rendering-jsf-dependencies::pom">
         <includes>
           <artifact groupId="org.nuxeo*" />
         </includes>
@@ -93,7 +93,7 @@
     </copy>
     <!-- Third-party libraries -->
     <copy todir="${outdir}/nxr/lib" overwrite="true">
-      <artifact:dependencies key="org.nuxeo.template.rendering:nuxeo-template-rendering-web:::">
+      <artifact:dependencies key="org.nuxeo.template.rendering:nuxeo-template-rendering-jsf-dependencies::pom">
         <includes>
           <artifact groupId="!org.nuxeo*" />
           <artifact groupId="org.nuxeo.lib*" />
