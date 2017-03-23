@@ -16,9 +16,9 @@
   </platforms>
   <dependencies>
     <package>nuxeo-template-rendering</package>
-    <package>nuxeo-jsf-ui</package>
+    <package>nuxeo-web-ui</package>
   </dependencies>
-  <license>LGPL 2.1</license>
-  <license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
+  <license>Apache 2.0</license>
+  <license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
   <visibility>PUBLIC</visibility>
 </package>
