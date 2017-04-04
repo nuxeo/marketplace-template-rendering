@@ -16,6 +16,7 @@
   </platforms>
   <dependencies>
     <package>nuxeo-template-rendering</package>
+    <package>nuxeo-jsf-ui</package>
     <package>nuxeo-web-ui</package>
   </dependencies>
   <license>Apache 2.0</license>
