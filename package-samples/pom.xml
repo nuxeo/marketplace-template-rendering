@@ -18,6 +18,10 @@
       <artifactId>nuxeo-template-rendering-samples</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.nuxeo.template.rendering</groupId>
+      <artifactId>nuxeo-template-rendering-samples-jsf</artifactId>
+    </dependency>
+    <dependency>
       <groupId>nuxeo-studio</groupId>
       <artifactId>template-module-demo</artifactId>
     </dependency>
