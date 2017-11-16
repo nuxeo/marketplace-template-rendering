@@ -21,6 +21,11 @@
       <groupId>nuxeo-studio</groupId>
       <artifactId>template-module-demo</artifactId>
     </dependency>
+    <!-- JSF extraction of the template-module-demo Studio project -->
+    <dependency>
+      <groupId>org.nuxeo.template.rendering</groupId>
+      <artifactId>nuxeo-template-rendering-samples-jsf</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
