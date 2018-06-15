@@ -63,6 +63,12 @@
 &lt;/install&gt;${line.separator}" />
     <echo file="${outdir}/marketplace/install.xml" message="${install.content}" />
 
+    <!-- Studio Registries Extraction -->
+    <nx:studioExtraction todir="${outdir}/marketplace">
+      <fileset dir="${outdir}/marketplace/install/bundles-jsf-ui"/>
+      <fileset dir="${outdir}/marketplace/install/bundles-web-ui"/>
+    </nx:studioExtraction>
+
     <zip destfile="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
          basedir="${outdir}/marketplace" />
     <artifact:attach file="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip" type="zip" />
