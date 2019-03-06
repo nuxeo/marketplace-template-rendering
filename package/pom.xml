@@ -35,14 +35,6 @@
       <artifactId>nuxeo-template-rendering-jsf-dependencies</artifactId>
       <type>pom</type>
     </dependency>
-    <dependency>
-      <groupId>org.nuxeo.template.rendering</groupId>
-      <artifactId>nuxeo-template-rendering-jaxrs-web-ui</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.nuxeo.template.rendering</groupId>
-      <artifactId>nuxeo-template-rendering-web-ui</artifactId>
-    </dependency>
   </dependencies>
 
   <build>
