@@ -33,15 +33,24 @@
       </filterset>
     </copy>
 
+    <!-- Nuxeo Web UI bundles -->
+    <mkdir dir="${outdir}/marketplace/install/bundles-web-ui" />
+    <copy todir="${outdir}/marketplace/install/bundles-web-ui" overwrite="true">
+      <artifact:file artifactId="nuxeo-template-rendering-samples" />
+      <artifact:file artifactId="template-module-demo" />
+    </copy>
+
     <!-- Nuxeo JSF UI bundles -->
     <mkdir dir="${outdir}/marketplace/install/bundles-jsf-ui" />
     <copy todir="${outdir}/marketplace/install/bundles-jsf-ui" overwrite="true">
-      <artifact:file artifactId="nuxeo-template-rendering-samples" />
       <artifact:file artifactId="nuxeo-template-rendering-samples-jsf" />
     </copy>
 
     <!-- Generate install.xml file -->
     <var name="install.content" value="&lt;install&gt;" />
+    <var name="install.content"
+         value="${install.content}${line.separator}
+  &lt;update file=&quot;${package.root}/install/bundles-web-ui&quot; todir=&quot;${env.bundles}&quot; if=&quot;Packages.contains('nuxeo-web-ui')&quot; /&gt;" />
     <var name="install.content"
          value="${install.content}${line.separator}
   &lt;update file=&quot;${package.root}/install/bundles-jsf-ui&quot; todir=&quot;${env.bundles}&quot; if=&quot;Packages.contains('nuxeo-jsf-ui')&quot; /&gt;" />
@@ -57,6 +66,7 @@
     <!-- Studio Registries Extraction -->
     <nx:studioExtraction todir="${outdir}/marketplace">
       <fileset dir="${outdir}/marketplace/install/bundles-jsf-ui"/>
+      <fileset dir="${outdir}/marketplace/install/bundles-web-ui"/>
     </nx:studioExtraction>
 
     <zip destfile="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
