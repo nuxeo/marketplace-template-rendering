@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.nuxeo.template.rendering</groupId>
@@ -7,9 +9,9 @@
     <relativePath>../../pom.xml</relativePath>
   </parent>
 
-  <artifactId>startup</artifactId>
-  <name>Startup tests of template rendering</name>
-  <description>Startup tests of template rendering</description>
+  <artifactId>startup-samples</artifactId>
+  <name>Startup tests of template rendering Samples</name>
+  <description>Startup tests of template rendering Samples</description>
 
   <dependencies>
     <dependency>
@@ -29,6 +31,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.nuxeo.template.rendering</groupId>
+      <artifactId>package-samples</artifactId>
+      <type>zip</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.nuxeo.ecm.distribution</groupId>
       <artifactId>nuxeo-server-tomcat</artifactId>
       <type>zip</type>
@@ -37,6 +45,12 @@
     <dependency>
       <groupId>org.nuxeo.ecm.distribution</groupId>
       <artifactId>nuxeo-marketplace-jsf-ui</artifactId>
+      <type>zip</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.web.ui</groupId>
+      <artifactId>nuxeo-web-ui-marketplace</artifactId>
       <type>zip</type>
       <scope>test</scope>
     </dependency>
