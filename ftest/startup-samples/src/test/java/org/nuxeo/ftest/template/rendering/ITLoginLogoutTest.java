@@ -22,7 +22,11 @@ package org.nuxeo.ftest.template.rendering;
 
 import org.junit.Test;
 import org.nuxeo.functionaltests.AbstractTest;
+import org.nuxeo.functionaltests.pages.DocumentBasePage;
+import org.nuxeo.functionaltests.pages.LoginPage;
 import org.nuxeo.functionaltests.pages.DocumentBasePage.UserNotConnectedException;
+
+import static org.nuxeo.functionaltests.Constants.ADMINISTRATOR;
 
 /**
  * Tests login / logout.
@@ -31,8 +35,10 @@ public class ITLoginLogoutTest extends AbstractTest {
 
     @Test
     public void testLoginLogout() throws UserNotConnectedException {
-        // Login
-        login();
+        // Login, redirecting to JSF
+        DocumentBasePage documentBasePage = get(NUXEO_URL + "/jsf", LoginPage.class).login(ADMINISTRATOR, ADMINISTRATOR,
+                DocumentBasePage.class);
+        documentBasePage.checkUserConnected(ADMINISTRATOR);
         // Logout
         logout();
     }
